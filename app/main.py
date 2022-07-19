@@ -13,6 +13,7 @@ async def read_root(request: Request):
     with open(f'output/{filename}.txt','w') as f:
         f.write(f"{request.client.host}:{request.client.port}\n")
         f.write(f"{request.headers.get('user-agent')}\n")
-        f.write(json.dumps(request.headers.keys()) + '\n')
+        for key,value in request.headers.items():
+            f.write(f"{key}: {value}\n")
     
     return {"ts": datetime.now(), "status": 200, "msg": "OK"}
