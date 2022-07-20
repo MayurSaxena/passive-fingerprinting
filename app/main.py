@@ -16,4 +16,4 @@ async def read_root(request: Request):
         for key,value in request.headers.items():
             f.write(f"{key}: {value}\n")
     
-    return {"ts": datetime.now(), "status": 200, "msg": "OK"}
+    return {"ts": datetime.now(), "status": 200, "msg": filename}
