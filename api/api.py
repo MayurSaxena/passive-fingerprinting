@@ -32,12 +32,12 @@ async def startup():
     with open('header_signatures.json') as f:
         HEADER_SIGNATURES = json.loads(f.read().strip())
 
-async def get_from_redis(key, max_tries=20):
+async def get_from_redis(key, max_tries=25):
     result = None
     while max_tries > 0:
         result = await rdb.get(key)
         if result is not None:
-            await rdb.delete(key)
+            #await rdb.delete(key)
             break
         max_tries -= 1
         await asyncio.sleep(0.2)

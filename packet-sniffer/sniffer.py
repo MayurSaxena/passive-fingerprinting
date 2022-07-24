@@ -5,6 +5,7 @@ import scapy_p0f
 import hashlib
 from typing import Tuple
 import redis
+import traceback
 
 rdb = redis.from_url('redis://redis:6379')
 
@@ -81,8 +82,8 @@ def ja3_from_tls_client_hello (pkt) -> Tuple[str, str]:
         return (string_ja3, md5_ja3)
 
 def handle_packet(pkt):
-
     try:
+        print(pkt.summary())
         src_ip = pkt['IP'].src
         sport = pkt['TCP'].sport
         key_str = f'{src_ip}:{sport}'
@@ -90,8 +91,8 @@ def handle_packet(pkt):
         if pkt['TCP'].flags == 2: # SYN-only packet, can't be ClientHello
             p0f_result = scapy_p0f.p0f(pkt['IP'])[0]
             parsed_p0f_result = f"{p0f_result[1]}:{' '.join(p0f_result[2:])}"
-            rdb.set(f'{key_str}_tcp', str(scapy_p0f.p0fv3.packet2p0f(pkt['IP'])[0]))
-            rdb.set(f'{key_str}_tcp_result', parsed_p0f_result)
+            rdb.set(f'{key_str}_tcp', str(scapy_p0f.p0fv3.packet2p0f(pkt['IP'])[0]), ex=120)
+            rdb.set(f'{key_str}_tcp_result', parsed_p0f_result, ex=120)
 
             if pkt['TCP'].dport == 80:
                 rdb.set(f'{key_str}_ja3', '', ex=120)
@@ -102,7 +103,7 @@ def handle_packet(pkt):
             rdb.set(f'{key_str}_ja3', ja3, ex=120)
             rdb.set(f'{key_str}_ja3_hash', ja3_hash, ex=120)
     except Exception as e:
-        print(e)
+        traceback.print_exc()
         for suffix in ['_tcp', '_tcp_result', 'ja3', 'ja3_hash']:
             if rdb.get(f'{key_str}{suffix}') is None:
                 rdb.set(f'{key_str}{suffix}', '', ex=120)
