@@ -1,0 +1,703 @@
+{
+    "Chrome": {
+        "14": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "15": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "16": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "17": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "18": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "19": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "20": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "21": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "22": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "23": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "24": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "25": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "26": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "27": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "28": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "29": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "30": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "31": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "32": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "33": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "34": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "35": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "36": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "37": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "38": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "39": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "40": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "41": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "42": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "43": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "44": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "45": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "46": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "47": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "48": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "49": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "50": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ],
+        "51": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "52": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "53": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "54": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "55": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "56": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "57": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "58": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "59": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "60": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "61": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "62": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "63": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "64": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "65": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "66": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "67": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "68": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "69": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "70": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "71": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "72": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "73": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "74": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "75": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "76": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "77": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "78": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "79": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "80": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "81": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "83": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "84": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "85": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "86": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "87": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "88": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "89": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "90": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "91": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "92": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "93": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "94": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "95": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "96": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "97": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "98": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "99": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "100": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "101": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "102": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "103": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "104": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ]
+    },
+    "Firefox": {
+        "3": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "4": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "5": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "6": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "7": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "8": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "9": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "10": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "11": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "12": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "13": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "14": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "15": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "16": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "17": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "18": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "19": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "20": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "21": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "22": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "23": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "24": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "25": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "26": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "27": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "28": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "29": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "30": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "31": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "32": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "33": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "34": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "35": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "36": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "37": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "38": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "39": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "40": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "41": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "42": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "43": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "44": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "45": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "46": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "53": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "54": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "55": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "56": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "57": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "58": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "59": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "60": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "61": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "62": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "63": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "64": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "65": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "66": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "67": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "68": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "69": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "70": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "71": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "72": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "73": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "74": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "75": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "76": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "77": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "78": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "79": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "80": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "81": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "82": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "83": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "84": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "85": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "86": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "87": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "88": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "89": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "90": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "91": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "92": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "93": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "94": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "95": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "96": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "97": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "98": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "99": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "100": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "101": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "102": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "103": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ]
+    },
+    "Edge": {
+        "15": [
+            "accept, accept-language, user-agent, accept-encoding"
+        ],
+        "16": [
+            "accept, accept-language, user-agent, accept-encoding"
+        ],
+        "17": [
+            "user-agent, accept-language, accept, accept-encoding"
+        ],
+        "18": [
+            "accept, accept-language, user-agent, accept-encoding"
+        ],
+        "80": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "81": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "83": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "84": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "85": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "86": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "87": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "88": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "89": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "90": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "91": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "92": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "93": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "94": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "95": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "96": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "97": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "98": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "99": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "100": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "101": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "102": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "103": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ],
+        "104": [
+            "user-agent, accept, accept-encoding, accept-language"
+        ]
+    },
+    "Safari": {
+        "4": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "5": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ],
+        "10": [
+            "accept-encoding, accept, user-agent, accept-language"
+        ],
+        "11": [
+            "accept-encoding, accept, user-agent, accept-language"
+        ],
+        "12": [
+            "accept, accept-language, accept-encoding, user-agent"
+        ],
+        "13": [
+            "accept, accept-language, accept-encoding, user-agent"
+        ],
+        "14": [
+            "accept, accept-language, accept-encoding, user-agent"
+        ],
+        "15": [
+            "accept, accept-language, accept-encoding, user-agent"
+        ]
+    },
+    "Opera": {
+        "12": [
+            "user-agent, accept, accept-language, accept-encoding"
+        ]
+    },
+    "IE": {
+        "6": [
+            "accept, accept-language, accept-encoding, user-agent"
+        ],
+        "7": [
+            "accept, accept-language, accept-encoding, user-agent"
+        ],
+        "8": [
+            "accept, accept-language, user-agent, accept-encoding"
+        ],
+        "9": [
+            "accept, accept-language, user-agent, accept-encoding"
+        ],
+        "10": [
+            "accept, accept-language, user-agent, accept-encoding"
+        ],
+        "11": [
+            "accept, accept-language, user-agent, accept-encoding"
+        ]
+    },
+    "Yandex Browser": {
+        "14": [
+            "accept, user-agent, accept-encoding, accept-language"
+        ]
+    }
+}
