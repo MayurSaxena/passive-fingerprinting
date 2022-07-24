@@ -32,7 +32,7 @@ async def startup():
     with open('header_signatures.json') as f:
         HEADER_SIGNATURES = json.loads(f.read().strip())
 
-async def get_from_redis(key, max_tries=5):
+async def get_from_redis(key, max_tries=20):
     result = None
     while max_tries > 0:
         result = await rdb.get(key)

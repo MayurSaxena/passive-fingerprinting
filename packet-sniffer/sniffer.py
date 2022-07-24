@@ -94,18 +94,18 @@ def handle_packet(pkt):
             rdb.set(f'{key_str}_tcp_result', parsed_p0f_result)
 
             if pkt['TCP'].dport == 80:
-                rdb.set(f'{key_str}_ja3', '')
-                rdb.set(f'{key_str}_ja3_hash', '')
+                rdb.set(f'{key_str}_ja3', '', ex=120)
+                rdb.set(f'{key_str}_ja3_hash', '', ex=120)
 
         else:
             ja3, ja3_hash = ja3_from_tls_client_hello(pkt)
-            rdb.set(f'{key_str}_ja3', ja3)
-            rdb.set(f'{key_str}_ja3_hash', ja3_hash)
+            rdb.set(f'{key_str}_ja3', ja3, ex=120)
+            rdb.set(f'{key_str}_ja3_hash', ja3_hash, ex=120)
     except Exception as e:
         print(e)
         for suffix in ['_tcp', '_tcp_result', 'ja3', 'ja3_hash']:
             if rdb.get(f'{key_str}{suffix}') is None:
-                rdb.set(f'{key_str}{suffix}', '')
+                rdb.set(f'{key_str}{suffix}', '', ex=120)
 
 
 scapy.load_layer('tls')
