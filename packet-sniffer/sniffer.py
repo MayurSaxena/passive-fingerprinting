@@ -89,7 +89,8 @@ def handle_packet(pkt):
         key_str = f'{src_ip}:{sport}'
 
         if pkt['TCP'].flags == 2: # SYN-only packet, can't be ClientHello
-            p0f_result = scapy_p0f.p0f(pkt['IP'])[0]
+            p0f_result = scapy_p0f.p0f(pkt['IP'])
+            pof_result = pof_result[0] if p0f_result else None
             parsed_p0f_result = f"{p0f_result[1]}:{' '.join(p0f_result[2:])}"
             rdb.set(f'{key_str}_tcp', str(scapy_p0f.p0fv3.packet2p0f(pkt['IP'])[0]), ex=120)
             rdb.set(f'{key_str}_tcp_result', parsed_p0f_result, ex=120)
