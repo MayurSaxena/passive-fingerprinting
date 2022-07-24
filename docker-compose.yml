@@ -18,7 +18,7 @@ services:
       - app
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - ./certbot/conf/:/etc/letsencrypt/:rw
   fingerprint-api:
     build: ./api/
     networks:
@@ -29,8 +29,6 @@ services:
   packet-sniffer:
     build: ./packet-sniffer/
     network_mode: service:webserver
-    networks:
-      - app
     restart: always
   redis:
     image: redis:latest
