@@ -115,3 +115,8 @@ async def fingerprint(request: Request, debug: typing.Union[str, None] = None):
             f.write(json.dumps({k: v for k,v in request.headers.items()}) + '\n')
     
     return response
+
+@app.get("/debug", response_class=PrettyJSONResponse)
+async def debug(request: Request):
+    r = await fingerprint(request, 'yes')
+    return r
