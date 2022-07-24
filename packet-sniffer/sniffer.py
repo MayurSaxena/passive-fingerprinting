@@ -90,10 +90,14 @@ def handle_packet(pkt):
 
         if pkt['TCP'].flags == 2: # SYN-only packet, can't be ClientHello
             p0f_result = scapy_p0f.p0f(pkt['IP'])
-            p0f_result = p0f_result[0] if p0f_result else None
-            parsed_p0f_result = f"{p0f_result[1]}:{' '.join(p0f_result[2:])}"
-            rdb.set(f'{key_str}_tcp', str(scapy_p0f.p0fv3.packet2p0f(pkt['IP'])[0]), ex=120)
-            rdb.set(f'{key_str}_tcp_result', parsed_p0f_result, ex=120)
+            if not p0f_result:
+                rdb.set(f'{key_str}_tcp', '', ex=120)
+                rdb.set(f'{key_str}_tcp_result', '', ex=120)
+            else:
+                p0f_result = p0f_result[0] if p0f_result else None
+                parsed_p0f_result = f"{p0f_result[1]}:{' '.join(p0f_result[2:])}"
+                rdb.set(f'{key_str}_tcp', str(scapy_p0f.p0fv3.packet2p0f(pkt['IP'])[0]), ex=120)
+                rdb.set(f'{key_str}_tcp_result', parsed_p0f_result, ex=120)
 
             if pkt['TCP'].dport == 80:
                 rdb.set(f'{key_str}_ja3', '', ex=120)
