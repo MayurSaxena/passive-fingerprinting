@@ -57,7 +57,9 @@ def check_tcp_spoofing(parsed_ua, p0f_result):
     elif parsed_ua['os']['family'] == 'Windows' and p0f_class != 'win':
         return True
     elif parsed_ua['os']['family'] == 'Mac OS X':
-        return p0f_class != 'unix'
+        return p0f_name != 'Mac OS X'
+    elif parsed_ua['os']['family'] in ['Linux', 'Ubuntu']:
+        return p0f_class != "unix"
     else:
         return None # spoofing status unknown
 

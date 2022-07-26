@@ -95,7 +95,7 @@ def handle_packet(pkt):
                 rdb.set(f'{key_str}_tcp_result', '', ex=120)
             else:
                 p0f_result = p0f_result[0] if p0f_result else None
-                parsed_p0f_result = f"{p0f_result[1]}:{' '.join(p0f_result[2:])}"
+                parsed_p0f_result = f"{p0f_result[1]}:{' '.join(p0f_result[2:])}".strip()
                 rdb.set(f'{key_str}_tcp', str(scapy_p0f.p0fv3.packet2p0f(pkt['IP'])[0]), ex=120)
                 rdb.set(f'{key_str}_tcp_result', parsed_p0f_result, ex=120)
 
