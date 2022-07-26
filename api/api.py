@@ -11,6 +11,7 @@ app = FastAPI()
 rdb = None
 IMPORTANT_HEADERS = ['user-agent', 'accept', 'accept-encoding', 'accept-language']
 HEADERS_SIGNATURES = None
+JA3_HASHES = None
 
 class PrettyJSONResponse(Response):
     media_type = "application/json"
@@ -26,11 +27,14 @@ class PrettyJSONResponse(Response):
 
 @app.on_event('startup')
 async def startup():
-    global rdb, HEADER_SIGNATURES
+    global rdb, HEADER_SIGNATURES, JA3_HASHES
     rdb = await aioredis.from_url('redis://redis:6379')
 
     with open('header_signatures.json') as f:
         HEADER_SIGNATURES = json.loads(f.read().strip())
+    
+    with open('ja3_hashes.json') as f:
+        JA3_HASHES = json.loads(f.read().strip())
 
 async def get_from_redis(key, max_tries=25):
     result = None
@@ -63,6 +67,19 @@ def check_http_spoofing(parsed_ua, seen_headers):
     
     return (seen_headers not in known_header_strings) if known_header_strings is not None else None
 
+def check_tls_spoofing(parsed_ua, ja3_hash):
+    if JA3_HASHES.get(ja3_hash) is None:
+        return (None, None)
+    else:
+        browser = parsed_ua['user_agent']['family']
+        major = parsed_ua['user_agent']['major']
+        minor = parsed_ua['user_agent']['minor']
+        version = f"{major}.{minor}"
+        if JA3_HASHES[ja3_hash].get(browser) and version in JA3_HASHES[ja3_hash][browser]:
+            return (False, JA3_HASHES[ja3_hash])
+        else:
+            return (True, JA3_HASHES[ja3_hash])
+
 
 @app.get("/", response_class=PrettyJSONResponse)
 async def fingerprint(request: Request, debug: typing.Union[str, None] = None):
@@ -82,6 +99,7 @@ async def fingerprint(request: Request, debug: typing.Union[str, None] = None):
 
     is_tcp_spoofing = check_tcp_spoofing(parsed_ua, p0f_result_string)
     is_http_spoofing = check_http_spoofing(parsed_ua, observed_headers)
+    is_tls_spoofing, matching_clients = check_tls_spoofing(parsed_ua, ja3_hash)
     
     filename = str(uuid.uuid4())
 
@@ -101,7 +119,8 @@ async def fingerprint(request: Request, debug: typing.Union[str, None] = None):
                 "tls": {
                     "ja3": ja3,
                     "ja3_hash": ja3_hash,
-                    "known_clients": None
+                    "spoof": is_tls_spoofing,
+                    "known_clients": matching_clients
                 },
                 "http": {
                     "headers": observed_headers,
