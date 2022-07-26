@@ -2,3 +2,4 @@
 output/
 certbot/
 __pycache__/
+local_scripts/
