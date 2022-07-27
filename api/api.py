@@ -1,4 +1,5 @@
-from fastapi import FastAPI, Request
+from fcntl import F_SEAL_SEAL
+from fastapi import FastAPI, Request, status
 from datetime import datetime
 import uuid
 import aioredis
@@ -66,8 +67,30 @@ def check_tcp_spoofing(parsed_ua, p0f_result):
 def check_http_spoofing(parsed_ua, seen_headers):
     known_header_strings = HEADER_SIGNATURES.get(parsed_ua['user_agent']['family'], {}) \
                                             .get(parsed_ua['user_agent']['major'])
+
+    for header_string in known_header_strings:
+        headers = header_string.split(', ')
+        seen_headers = seen_headers.split(', ')
+        orders = []
+
+        if 'user-agent' in headers:
+            try:
+                r = (headers.index('user-agent') == seen_headers.index('user-agent'))
+                if r == False:
+                    return True
+            except ValueError:
+                return True
+
+        for h in seen_headers:          
+            orders.append(headers.index(h))
+        
+        if orders != sorted(orders):
+            return True
     
-    return (seen_headers not in known_header_strings) if known_header_strings is not None else None
+    return False
+
+    
+    #return (seen_headers not in known_header_strings) if known_header_strings is not None else None
 
 def check_tls_spoofing(parsed_ua, ja3_hash):
     if JA3_HASHES.get(ja3_hash) is None:
@@ -89,6 +112,12 @@ async def fingerprint(request: Request, debug: typing.Union[str, None] = None):
     real_src_ip = request.headers.get('X-FP-IP')
     real_src_port = request.headers.get('X-FP-Port')
     user_agent = request.headers.get('User-Agent')
+
+    if not (real_src_ip and real_src_port and user_agent):
+        return {"status": status.HTTP_400_BAD_REQUEST,
+                "msg": "User-Agent header is required."
+                }
+
     key_str = f"{real_src_ip}:{real_src_port}"
     parsed_ua = user_agent_parser.Parse(user_agent)
     observed_headers = ", ".join([header for header in filter(lambda h: h in IMPORTANT_HEADERS,
