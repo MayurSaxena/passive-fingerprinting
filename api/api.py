@@ -66,7 +66,7 @@ def check_tcp_spoofing(parsed_ua, p0f_result):
 
 def check_http_spoofing(parsed_ua, seen_headers):
     known_header_strings = HEADER_SIGNATURES.get(parsed_ua['user_agent']['family'], {}) \
-                                            .get(parsed_ua['user_agent']['major'])
+                                            .get(parsed_ua['user_agent']['major'], [])
 
     for header_string in known_header_strings:
         headers = header_string.split(', ')
@@ -87,7 +87,7 @@ def check_http_spoofing(parsed_ua, seen_headers):
         if orders != sorted(orders):
             return True
     
-    return False
+    return False if known_header_strings else None
 
     
     #return (seen_headers not in known_header_strings) if known_header_strings is not None else None
