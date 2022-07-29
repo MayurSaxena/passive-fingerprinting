@@ -20,7 +20,7 @@ def ja3_from_tls_client_hello (pkt) -> Tuple[str, str]:
         try:
             tls_client_hello.version
         except KeyError:
-            print (f"aye wtf, you sure this is a client hello? {type (tls_client_hello)}")
+            print (f"Likely not a ClientHello: {type (tls_client_hello)}")
             raise
 
         # def print_field (field_name): print (f"{field_name} {tls_client_hello.fields [field_name]}")
@@ -90,6 +90,7 @@ def handle_packet(pkt):
 
         if pkt['TCP'].flags == 2: # SYN-only packet, can't be ClientHello
             p0f_result = scapy_p0f.p0f(pkt['IP'])
+            # Redis keys expire after 2 minutes
             if not p0f_result:
                 rdb.set(f'{key_str}_tcp', '', ex=120)
                 rdb.set(f'{key_str}_tcp_result', '', ex=120)
@@ -100,6 +101,7 @@ def handle_packet(pkt):
                 rdb.set(f'{key_str}_tcp_result', parsed_p0f_result, ex=120)
 
             if pkt['TCP'].dport == 80:
+                # No JA3 on HTTP requests
                 rdb.set(f'{key_str}_ja3', '', ex=120)
                 rdb.set(f'{key_str}_ja3_hash', '', ex=120)
 
@@ -109,6 +111,7 @@ def handle_packet(pkt):
             rdb.set(f'{key_str}_ja3_hash', ja3_hash, ex=120)
     except Exception as e:
         traceback.print_exc()
+        # Error occurred, set expected keys to blank
         for suffix in ['_tcp', '_tcp_result', 'ja3', 'ja3_hash']:
             if rdb.get(f'{key_str}{suffix}') is None:
                 rdb.set(f'{key_str}{suffix}', '', ex=120)
@@ -117,4 +120,5 @@ def handle_packet(pkt):
 scapy.load_layer('tls')
 scapy.conf.use_pcap=True # use libpcap
 # https://www.baeldung.com/linux/tcpdump-capture-ssl-handshake
-scapy.sniff(filter='(tcp dst port 80 or 443) and ((tcp[tcpflags]==tcp-syn) or ((tcp[((tcp[12] & 0xf0) >> 2)] = 0x16) && (tcp[((tcp[12] & 0xf0) >>2)+5] = 0x01)))', prn=lambda x: handle_packet(x))
+scapy.sniff(filter='(tcp dst port 80 or 443) and ((tcp[tcpflags]==tcp-syn) or ((tcp[((tcp[12] & 0xf0) >> 2)] = 0x16) && (tcp[((tcp[12] & 0xf0) >>2)+5] = 0x01)))',
+            prn=lambda x: handle_packet(x))

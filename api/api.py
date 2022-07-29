@@ -1,4 +1,3 @@
-from fcntl import F_SEAL_SEAL
 from fastapi import FastAPI, Request, status
 from datetime import datetime
 import uuid
@@ -9,12 +8,17 @@ from starlette.responses import Response
 from ua_parser import user_agent_parser
 
 app = FastAPI()
-rdb = None
+rdb = None # global redis client
+# headers to be used for HTTP signaturing
 IMPORTANT_HEADERS = ['user-agent', 'accept', 'accept-encoding', 'accept-language']
+# Dictionary containing mappings between browser and version to expected header order
 HEADERS_SIGNATURES = None
+# Dictionary mapping JA3 hashes to observed clients
 JA3_HASHES = None
 
 class PrettyJSONResponse(Response):
+    # Response type to render JSON prettier in browser
+    # https://stackoverflow.com/questions/67783530/is-there-a-way-to-pretty-print-prettify-a-json-response-in-fastapi
     media_type = "application/json"
 
     def render(self, content) -> bytes:
@@ -28,6 +32,7 @@ class PrettyJSONResponse(Response):
 
 @app.on_event('startup')
 async def startup():
+    # Create a Redis connection, load the header sigs and JA3 hashes
     global rdb, HEADER_SIGNATURES, JA3_HASHES
     rdb = await aioredis.from_url('redis://redis:6379')
 
@@ -38,6 +43,7 @@ async def startup():
         JA3_HASHES = json.loads(f.read().strip())
 
 async def get_from_redis(key, max_tries=25):
+    # Function to retrive value from Redis, but retries for up to 5s
     result = None
     while max_tries > 0:
         result = await rdb.get(key)
@@ -75,12 +81,15 @@ def check_http_spoofing(parsed_ua, seen_headers):
 
         if 'user-agent' in headers:
             try:
+                # user-agent must always be present in the correct location
                 r = (headers.index('user-agent') == seen_headers.index('user-agent'))
                 if r == False:
                     return True
             except ValueError:
                 return True
-
+        
+        # other optional headers like Accept-Language can be missing but
+        # headers must still be in same relative order
         for h in seen_headers:          
             orders.append(headers.index(h))
         
@@ -89,8 +98,6 @@ def check_http_spoofing(parsed_ua, seen_headers):
     
     return False if known_header_strings else None
 
-    
-    #return (seen_headers not in known_header_strings) if known_header_strings is not None else None
 
 def check_tls_spoofing(parsed_ua, ja3_hash):
     if JA3_HASHES.get(ja3_hash) is None:

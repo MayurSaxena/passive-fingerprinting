@@ -3,6 +3,7 @@ Passive Fingerprinting Project
 
 # Deployment
 `docker-compose build`
+
 `docker-compose up -d`
 
 There's some work to be done where you:
